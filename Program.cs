@@ -1,48 +1,38 @@
-﻿namespace BitangcorAct2_SisAtMa_
+﻿using attedanceModels;
+using attendanceAppService;
+
+namespace BitangcorAct2_SisAtMa_
 {
     internal class Program
     {
+        static string studname;
+        static int present, absent;
+        static char ans;
         static void Main(string[] args)
         {
             Console.WriteLine("-----Attendance Management (PUPSIS)-----");
+            while (true)
+            {
+                Console.Write("Enter Student Name: ");
+                studname = Console.ReadLine();
+                Console.Write("Enter Numbers of Days Present: ");
+                present = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter Numbers of Days Absent: ");
+                absent = Convert.ToInt32(Console.ReadLine());
+            ;
 
+                Console.WriteLine("Student has been recorded successfully!");
 
-            String[] students = new string[12];
-
-            students[0] = "Alcantara";
-            students[1] = "Baseleres";
-            students[2] = "Bitangcor";
-            students[3] = "Cabillo";
-            students[4] = "Cruz";
-            students[5] = "David";
-            students[6] = "Fernandez";
-            students[7] = "Mallon";
-            students[8] = "Penaflor";
-            students[9] = "Rodriguez";
-            students[10] = "Santa  Rosa";
-            students[11] = "Trinidad";
-
-            String[] results = new string[12];
-
-            for (int i = 0; i < students.Length; i++){
-                Console.Write((i + 1) + ".) " + students[i] + " = ");
-                string y = Console.ReadLine();
-
-                for (int j = 0; j < students[i].Length; j++){
-                    results[j] = y;
+                Console.Write("do you want to add another student? (Y/N)");
+                ans = Console.ReadKey().KeyChar;
+                ans = char.ToUpper(ans);
+                Console.WriteLine();
+                if (ans != 'Y')
+                {
+                    break;
                 }
 
-
             }
-            Console.WriteLine("Summarization of the Attendance:");
-
-            for (int x = 0; x < students.Length; x++) {
-                Console.WriteLine((x + 1) + ".) " + students[x] + " = " + results[x]);
-            }
-
-
-
-
 
         }
     }
