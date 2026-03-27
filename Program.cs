@@ -5,52 +5,89 @@
         static string studname;
         static int present, absent;
         static char ans;
-        static void Main(string[] args)
-        {
-            Console.WriteLine("-----Attendance Management (PUPSIS)-----");
+        static void Main(string[] args){
 
+            Console.WriteLine("-----Attendance Management (PUPSIS)-----");
+            Console.WriteLine(" ");
             Console.WriteLine("Please select an option:");
             Console.WriteLine("1.) Create Student Attendance");
             Console.WriteLine("2.) Retrieve Student Attendance");
             Console.WriteLine("3.) Update Student Attendance");
             Console.WriteLine("4.) Delete Student Attendance");
-            Console.WriteLine("5.) Exit");
+            Console.WriteLine("5.) Show all Students Attendance");
+            Console.WriteLine("6.) Exit");
             Console.WriteLine(" ");
-            Console.Write("Select a number:");
-            int swi = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(" ");
+            
+            while (true){
 
-        switch (swi) {
+                Console.Write("Select a number:");
+                string input = Console.ReadLine();
+                int swi;
+                Console.WriteLine(" ");
 
-            case 1:
-
-              while (true)
-              {
-                Console.Write("Enter Student Name: ");
-                studname = Console.ReadLine();
-                Console.Write("Enter Numbers of Days Present: ");
-                present = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Enter Numbers of Days Absent: ");
-                absent = Convert.ToInt32(Console.ReadLine());
-                ;
-
-                Console.WriteLine("Student has been recorded successfully!");
-
-                Console.Write("do you want to add another student? (Y/N)");
-                ans = Console.ReadKey().KeyChar;
-                ans = char.ToUpper(ans);
-                Console.WriteLine();
-                if (ans != 'Y')
+                if (!int.TryParse(input, out swi))
                 {
-                    break;
+
+                    Console.WriteLine("Invalid input. Please enter a number (1-6).");
+                    Console.WriteLine();
                 }
 
+                switch (swi)
+                {
+
+                    case 1:
+
+                        do {
+                            Console.Write("Enter Student Name: ");
+                            studname = Console.ReadLine();
+
+                            Console.Write("Enter Numbers of Days Present: ");
+                            present = Convert.ToInt32(Console.ReadLine());
+
+                            Console.Write("Enter Numbers of Days Absent: ");
+                            absent = Convert.ToInt32(Console.ReadLine());
+
+                            Console.WriteLine("Student has been recorded successfully!");
+                            Console.WriteLine();
+
+                            Console.Write("Do you want to add another student? (Y/N): ");
+                            ans = Console.ReadKey().KeyChar;
+                            ans = char.ToUpper(ans);
+                            Console.WriteLine();
+                            Console.WriteLine();
+
+                        } while (ans == 'Y');
+
+                        Console.Write("Do you want another transaction? (Y/N): ");
+                        ans = Console.ReadKey().KeyChar;
+                        ans = char.ToUpper(ans);
+                        Console.WriteLine();
+                        Console.WriteLine();
+
+                           if (ans != 'Y'){
+                               Console.WriteLine("Exiting program...");
+                               return;
+                           }
+                        break;
+
+
+                    case 2:
+                        Console.WriteLine("hello");
+                        break;
+                    case 3:
+                        Console.WriteLine("hello");
+                        break;
+                    case 4:
+                        Console.WriteLine("hello");
+                        break;
+                    case 5:
+                        Console.WriteLine("hello");
+                        break;
+                    case 6:
+                        Console.WriteLine("hello");
+                        break;
+                }
             }
-                
-                case 2:
-
-                    break;
-
         }
     }
 }
